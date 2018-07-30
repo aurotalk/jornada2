@@ -1,0 +1,21 @@
+
+{% load static %}
+<html>
+ <head>
+     <title>Tuirer</title>
+     <link rel="stylesheet" href ="{% static 'css/style.css' %}">
+     <title>Tuiter</title>
+ </head>
+        <body> 
+            <h1>Tuirer</h1>
+            {% include 'includes/menu.html' %}
+            <h2>O melhor aplicativo</h2>
+         <p> 
+             
+             {% block body %}
+             Testando...
+             {% endblock %}
+         </p>
+         <footer>{% block footer %} eo tal do footer {% endblock %}</footer>
+        </body>
+</html>

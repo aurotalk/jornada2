@@ -1,0 +1,18 @@
+body {
+    background:green;
+    font-family: sans-serif;
+}
+
+footer{
+    background-color: #9e0a0a;
+}
+.error{
+    color:yellow;
+    font-size: .8em
+
+}
+.message{
+    color: blueviolet;
+
+
+}
