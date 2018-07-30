@@ -1,5 +1,21 @@
 from django.shortcuts import render
 from tuites.models import Tuite
+from django.views.generic import CreateView
+from django.urls import reverse_lazy
+from tuites.forms import PostTuiteForm
+
+
+
+class PostTuiteView(CreateView):
+    model = Tuite
+    template_name = 'post_tuite.html'
+    form_class = PostTuiteForm
+    success_url = reverse_lazy('post_tuite')
+
+    def get_initial(self):
+        return {
+            'user': self.request.user
+        }
 
 
 def post_tuite(request):

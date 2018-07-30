@@ -1,10 +1,10 @@
 {% extends "base.html" %}
 
 {% block body %}
-    {% if error %}
-       <script>
-            alert('{{ error }}');
-       </script>
+    {% if form.errors %}
+        {% for error in form.non_field_errors %}
+            <p class="error">{{ error }}</p>
+        {% endfor %}
     {% endif %}
     {% if sucess_message %}
        <p class="message"> {{ sucess_message }}</p>
@@ -13,6 +13,7 @@
         
     <form method="post"> 
         {% csrf_token %}
+        {{ form.as_p }}
         <input name="content" placeholder="Tas pensando oq?" />
         <input type="submit" value="Postar Tuite">
     </form>

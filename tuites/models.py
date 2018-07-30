@@ -3,8 +3,8 @@ from tuites.managers import TuitesManager
 
 
 class Tuite(models.Model):
-    content = models.CharField(max_length=280)
-    author = models.ForeignKey('users.User', on_delete=models.CASCADE, related_name='tuites')
+    content = models.CharField('Tuite', max_length=280)
+    author = models.ForeignKey('users.User', verbose_name='Autor', default=1 ,on_delete=models.CASCADE, related_name='tuites')
     date_created = models.DateTimeField(auto_now_add=True)
     objects = TuitesManager()
 
