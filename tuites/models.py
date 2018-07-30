@@ -16,5 +16,5 @@ class Tuite(models.Model):
 
 
 
-class Meta:
-    ordering =('content',)
+    class Meta:
+        ordering =('content',)

@@ -10,7 +10,9 @@ class PostTuiteForm(forms.ModelForm):
     def __init__(self,*args,**kwargs):
         super().__init__(*args, **kwargs)
         self.fields['author'].initial = self.initial['user'].id
-        
+        self.fields['author'].widget = forms.HiddenInput()
+        self.fields['content'].help_text='Digite o que você está pensando'
+        self.fields['content'].widget = forms.TextInput(attrs={'class': 'post-tuite-input'})
     
     
     def clean(self):

@@ -3,10 +3,11 @@ from tuites.models import Tuite
 from django.views.generic import CreateView
 from django.urls import reverse_lazy
 from tuites.forms import PostTuiteForm
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 
 
-class PostTuiteView(CreateView):
+class PostTuiteView(LoginRequiredMixin, CreateView):
     model = Tuite
     template_name = 'post_tuite.html'
     form_class = PostTuiteForm
@@ -16,6 +17,14 @@ class PostTuiteView(CreateView):
         return {
             'user': self.request.user
         }
+
+    def form_valid(self, form):
+        messages.sucess(
+            self.request,
+            'Voce postou tuite'
+        )
+        return super().form_valid(form)
+
 
 
 def post_tuite(request):
