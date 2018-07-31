@@ -7,25 +7,17 @@
             <p class="error">{{ error }}</p>
         {% endfor %}
     {% endif %}
-    {% if sucess_message %}
-       <p class="message"> {{ sucess_message }}</p>
-       
-     {% endif %}
         
     <form method="post"> 
         {% csrf_token %}
         {% for field in form %}
-            {if not field.name == 'author' %}
+            {% if not field.name == 'author' %}
                 <label for="{{ field.id_for_label }}">{{ field.label }}</label>
             {% endif %}
-            {% for message in messages %}
-                <p class="message">{{ message }}</p>
-            {% endfor %}
             {% render_field field class="post-tuite-field" placeholder=field.label %}
             <p style="font-size: .8em; color: #636;">{{ field.help_text }}</p>
         {{ field.errors }}
         {% endfor %}
         <input type="submit" value="Postar Tuite">
     </form>
-    
 {% endblock %}
