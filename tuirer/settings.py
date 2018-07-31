@@ -40,6 +40,10 @@ INSTALLED_APPS = [
     'core',
     'tuites',
     'users',
+
+    # Toda vez que instalar uma lib pra Django,
+    # tem que por no INSTALLED_APPS
+    'widget_tweaks',
 ]
 
 MIDDLEWARE = [

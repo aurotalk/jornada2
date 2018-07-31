@@ -3,10 +3,10 @@ from tuites.models import Tuite
 
 
 class PostTuiteForm(forms.ModelForm):
-
     class Meta:
         model = Tuite
         fields = ('content', 'author')
+
     def __init__(self,*args,**kwargs):
         super().__init__(*args, **kwargs)
         self.fields['author'].initial = self.initial['user'].id
