@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block body %} 
+<form method="post" enctype="multipart/form-data">
+    <a href="{% url 'users:profile' request.user.pk %}">Voltar para o seu perfil</a>
+    {% csrf_token %}
+    {{ form.as_p }}  
+    <input type="submit" value="Enviar">
+</form>   
+{% endblock %}

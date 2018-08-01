@@ -1,8 +1,12 @@
 {% extends 'base.html' %}
 
     {% block body %}
-
-
+ {% if messages %}
+ {% for message in messages %}
+  <div> {{ message }}> </div>
+  {% endfor %}
+  {% endif %}
+    
         {% for tuite in tuites %}
             <div>
                 {{ tuite }}

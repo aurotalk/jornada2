@@ -16,3 +16,11 @@ footer{
 
 
 }
+.profile-picture {
+    width: 100px;
+    height: 100px;
+    background: grey;
+    background-size: cover;
+    background-position: center;
+    border-radius: 50%;
+}

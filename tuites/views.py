@@ -11,7 +11,7 @@ class PostTuiteView(LoginRequiredMixin, CreateView):
     model = Tuite
     template_name = 'post_tuite.html'
     form_class = PostTuiteForm
-    success_url = reverse_lazy('post_tuite')
+    success_url = reverse_lazy('tuites:post_tuite')
 
     def get_initial(self):
         return {

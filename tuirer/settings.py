@@ -86,8 +86,11 @@ DATABASES = {
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
-
+#users
 AUTH_USER_MODEL = 'users.User'
+LOGIN_URL = 'index'
+LOGIN_REDIRECT_URL = 'tuites:post-tuite'
+LOGOUT_REDIRECT_URL = 'index'
 
 # Password validation
 # https://docs.djangoproject.com/en/2.0/ref/settings/#auth-password-validators
@@ -130,3 +133,14 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
 ]
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'mediafiles')
+MEDIA_URL = '/media/'
+
+DEFAULT_FILE_STORAGE = 'django.core.files.storage.FileSystemStorage'
+STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
+
+# Email
+
+DEFAULT_FROM_EMAIL = 'oi@test.com'
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
